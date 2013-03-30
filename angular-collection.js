@@ -1,10 +1,9 @@
 /**
  * Angular Collection - The Collection module for AngularJS
- * @version v0.1.0 - 2013-03-17
+ * @version v0.1.1 - 2013-03-30
  * @author Tomasz Kuklis
  * @license MIT License, http://www.opensource.org/licenses/MIT
  */
-
 'use strict';
 
 angular.module('ngCollection', []).
