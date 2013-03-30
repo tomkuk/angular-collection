@@ -1,0 +1,21 @@
+{
+  "author": {
+    "name": "Tomasz Kuklis",
+    "email": "tomasz.kuklis@gmail.com"
+  },
+  "name": "angular-collection",
+  "description": "Angular Collection - The Collection module for AngularJS",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tomkuk/angular-collection.git"
+  },
+  "engines": {
+    "node": ">= 0.8.4"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "async": "~0.2.x",
+    "testacular": "~0.6.x"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "author": "Tomasz Kuklis",
+  "name": "angulr-collection",
+  "description": "Angular Collection - The Collection module for AngularJS",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tomkuk/angular-collection.git"
+  },
+  "main": "./angular-collection.min.js",
+  "dependencies": {
+    "angular": ">= 1.0.2"
+  }
+}
