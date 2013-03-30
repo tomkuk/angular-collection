@@ -1,6 +1,6 @@
 ## AngularCollection
 
-[![build status](https://secure.travis-ci.org/tomkuk/angular-collection.png)](http://travis-ci.org/tomkuk/angular-collection.js)
+[![Build Status](https://travis-ci.org/tomkuk/angular-collection.png?branch=master)](https://travis-ci.org/tomkuk/angular-collection)
 
 ![angular-collection.js](http://i46.tinypic.com/726m80.jpg)
 
