@@ -18,10 +18,6 @@ describe("collection", function() {
     otherTodos.add(b);
   }));
 
-
-  afterEach(function() {
-  });
-
   it("should build collection", function() {
     expect(Todos).to.be.a('object');
     expect(Todos.array).to.be;
@@ -52,7 +48,7 @@ describe("collection", function() {
       expect(Todos.length).to.equal(1);
 
       expect(Todos.array[0])
-        .to.have.property('id')
+        .to.have.property('id');
       expect(Todos.array[0])
         .and.to.have.property('label')
         .and.to.equal("aa");

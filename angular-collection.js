@@ -38,7 +38,7 @@ angular.module('ngCollection', []).
       add: function(obj, options) {
         options || (options = {});
         var id, sort, sortAttr, doSort, existing;
-        sort = this.comparator && options.sort != false;
+        sort = this.comparator && options.sort !== false;
         sortAttr = angular.isString(this.comparator) ? this.comparator : null;
         if (sort && !doSort) doSort = true;
 
@@ -133,7 +133,7 @@ angular.module('ngCollection', []).
 
       child.getInstance = function(options) {
           return new child(options);
-      }
+      };
 
       child._super = parent.prototype;
 
@@ -145,4 +145,4 @@ angular.module('ngCollection', []).
     }
 
     return Collection;
-  }])
+  }]);
