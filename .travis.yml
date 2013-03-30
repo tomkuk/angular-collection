@@ -7,4 +7,4 @@ before_install:
   - sh -e /etc/init.d/xvfb start
   - npm install -g grunt@0.3.x testacular@0.4.x
 
- script: "grunt"
+script: "grunt"
