@@ -112,7 +112,7 @@ angular.module('ngCollection', []).
         this.hash  = {};
         this.array = [];
       }
-    }
+    };
 
     Collection.extend = function(protoProps) {
       var parent = this;
@@ -129,18 +129,14 @@ angular.module('ngCollection', []).
       if (protoProps) angular.extend(child.prototype, protoProps);
 
       child.extend = parent.extend;
-
-      child.getInstance = function(options) {
-          return new child(options);
-      };
-
+      child.getInstance = Collection.getInstance;
       child._super = parent.prototype;
 
       return child;
     }
 
     Collection.getInstance = function(options) {
-      return new Collection(options);
+      return new this(options);
     }
 
     return Collection;
