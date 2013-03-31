@@ -9,7 +9,7 @@
   },
   "main": "./angular-collection.min.js",
   "ignore": [
-    "test"
+    "test",
     ".gitignore",
     ".travis.yml",
     "Gruntfile.js",
