@@ -8,6 +8,13 @@
     "url": "git://github.com/tomkuk/angular-collection.git"
   },
   "main": "./angular-collection.min.js",
+  "ignore": [
+    "test"
+    ".gitignore",
+    ".travis.yml",
+    "Gruntfile.js",
+    "package.json"
+  ],
   "dependencies": {
     "angular": ">= 1.0.2"
   }
