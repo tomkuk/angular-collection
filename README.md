@@ -103,7 +103,7 @@ If a record is already in the collection, its attributes will be merged.
 
 ## Options
 
-You can pass parameter to `getInstance` to specify additional options.
+You can pass a single parameter to `getInstance` to specify additional options.
 
 ```js
 var todos = TodoCollection.getInstance(options);
@@ -111,7 +111,7 @@ var todos = TodoCollection.getInstance(options);
 Currently the only options available are `idAttribute` and `comparator`.
 
 ```js
-var todos = TodoCollection.getInstance({idAttribyte: 'id', comparator: '-created_at'});
+var todos = TodoCollection.getInstance({idAttribute: 'id', comparator: '-created_at'});
 ```
 
 ##License:
