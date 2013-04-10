@@ -60,6 +60,15 @@ angular.module('ngCollection', []).
         return this;
       },
 
+      addAll: function(objArr, options) {
+        for (var i = 0; i < objArr.length; i++) {
+          var obj = objArr[i];
+          this.add(obj, options);
+        };
+
+        return this;
+      },
+
       sort: function() {
         if (angular.isString(this.comparator)) {
           this.array = $filter('orderBy')(this.array, this.comparator);
@@ -88,6 +97,14 @@ angular.module('ngCollection', []).
         index = this.array.indexOf(obj);
         this.array.splice(index, 1);
         this.length--;
+        return this;
+      },
+
+      removeAll: function() {
+        for (var i = this.array.length - 1; i >= 0; i--) {
+          this.remove(this.at(i))
+        };
+
         return this;
       },
 
