@@ -28,17 +28,25 @@ or if you already have a bower based project you can add angular-collection to y
 
 + add(obj, options)
 
++ addAll(array, options)
+
++ sort()
+
 + get(obj | id)
 
 + update(obj)
 
 + remove(obj)
 
++ removeAll()
+
 + last()
 
 + at(index)
 
 + size()
+
++ all()
 
 ##Usage
 

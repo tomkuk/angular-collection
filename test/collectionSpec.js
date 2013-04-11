@@ -69,6 +69,51 @@ describe("collection", function() {
     });
   });
 
+  describe("#addAll", function(){
+    it("should add multiple records", function() {
+      Todos.addAll([a, b, c, d]);
+
+      expect(Todos.length).to.equal(4);
+
+      expect(Todos.array[0])
+        .to.equal(a)
+        .to.have.property('label')
+        .and.to.equal("a");
+      expect(Todos.hash[2]).to.equal(b);
+
+      expect(Todos.array[1])
+        .to.equal(b)
+        .to.have.property('label')
+        .and.to.equal("b");
+      expect(Todos.array[2])
+        .to.equal(c)
+        .to.have.property('label')
+        .and.to.equal("c");
+      expect(Todos.array[3])
+        .to.equal(d)
+        .to.have.property('label')
+        .and.to.equal("d");
+    });
+
+    it("should add multiple records without ids", function() {
+      Todos.addAll([{label: "aa"}, {label: "bb"}]);
+
+      expect(Todos.length).to.equal(2);
+
+      expect(Todos.array[0])
+        .to.have.property('id');
+      expect(Todos.array[0])
+        .and.to.have.property('label')
+        .and.to.equal("aa");
+
+      expect(Todos.array[1])
+        .to.have.property('id');
+      expect(Todos.array[1])
+        .and.to.have.property('label')
+        .and.to.equal("bb");
+    });
+  });
+
   describe("#get", function() {
     it("should return record by id", function () {
       var todo = otherTodos.get(a.id);
@@ -150,6 +195,15 @@ describe("collection", function() {
       otherTodos.remove(a);
       expect(otherTodos.length).to.equal(length-1);
       expect(otherTodos.get(a)).to.be.an('undefined');
+    });
+  });
+
+  describe("#removeAll", function(){
+    it("should remove all objects", function(){
+      otherTodos.removeAll();
+      expect(otherTodos.length).to.equal(0);
+      expect(otherTodos.get(a)).to.be.an('undefined');
+      expect(otherTodos.get(b)).to.be.an('undefined');
     });
   });
 
