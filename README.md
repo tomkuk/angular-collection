@@ -122,6 +122,14 @@ Currently the only options available are `idAttribute` and `comparator`.
 var todos = TodoCollection.getInstance({idAttribute: 'id', comparator: '-created_at'});
 ```
 
+##Contributors:
+
+* [@tomkuk](http://github.com/tomkuk)
+* [@mkuklis](http://github.com/mkuklis)
+* [@falsetto](http://github.com/falsetto)
+* [@jseppi](https://github.com/jseppi)
+
+
 ##License:
 <pre>
 The MIT License
