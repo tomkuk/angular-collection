@@ -11,7 +11,7 @@ describe("collection", function() {
     a = {id: 1, label: "a"};
     b = {id: 2, label: "b"};
     c = {id: 3, label: "c"};
-    d = {id: 4, label: "d"};
+    d = {id: 4, label: "d",item:{id:2}};
     Todos = $collection.getInstance();
     otherTodos = $collection.getInstance();
     otherTodos.add(a);
@@ -133,6 +133,35 @@ describe("collection", function() {
 
     it("should return void 0 for null", function () {
       var todo = otherTodos.get();
+
+      expect(todo).to.equal(void 0);
+    });
+  });
+
+  describe("#find", function() {
+    it("should return record by the given string structure", function () {
+      Todos.add(a);
+      Todos.add(b);
+      Todos.add(c);
+      Todos.add(d);
+
+      var todo = Todos.find('id',1);
+      var todoSub = Todos.find('item.id',2);
+
+      expect(todo)
+        .to.have.property('label')
+        .and.to.equal("a");
+      expect(todoSub)
+        .to.have.property('label')
+        .and.to.equal("d");
+    });
+
+    it("should throw an error if the key is not a string",function(){
+      expect(Todos.find).to.throw(/The key must be a string!/);
+    });
+
+    it("should return void 0 for no match", function () {
+      var todo = otherTodos.find('a.b.c.d',1234);
 
       expect(todo).to.equal(void 0);
     });
