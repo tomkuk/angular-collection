@@ -1,6 +1,6 @@
 /**
  * Angular Collection - The Collection module for AngularJS
- * @version v0.2.0 - 2013-04-11
+ * @version v0.2.0 - 2013-04-17
  * @author Tomasz Kuklis
  * @license MIT License, http://www.opensource.org/licenses/MIT
  */
@@ -81,6 +81,36 @@ angular.module('ngCollection', []).
         if (obj == null) return void 0;
         this._idAttr || (this._idAttr = this.idAttribute);
         return this.hash[obj.id || obj[this._idAttr] || obj];
+      },
+
+      find: function(strKey,value){
+        if(typeof strKey !== 'string'){
+          throw new Error("The key must be a string!");
+          return;
+        }
+        //so we can find key/values below the first level
+        var struct = strKey.split('.');
+        //loop over all the items in the array
+        for (var i = 0; i < this.array.length; i++){
+          //get current array value
+          var obj = this.array[i];
+          //loop over each item in the structure
+          for (var k = 0; k < struct.length; k++){
+            var key = struct[k]
+            try{
+              obj = obj[key];
+            }
+            catch(e){
+              //if we throw a gasket then do nothing because "this is not the droid you are looking for"
+            }
+          }
+          //compare our final result with the value we are searching for
+          if (obj === value){
+            return this.array[i];
+          }
+        }
+        //if nothing matches return void
+        return void 0;
       },
 
       update: function(obj) {
