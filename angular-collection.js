@@ -1,9 +1,10 @@
 /**
  * Angular Collection - The Collection module for AngularJS
- * @version v0.2.0 - 2013-04-11
+ * @version v0.2.0 - 2013-05-02
  * @author Tomasz Kuklis
  * @license MIT License, http://www.opensource.org/licenses/MIT
  */
+(function(window, angular, undefined) {
 'use strict';
 
 angular.module('ngCollection', []).
@@ -158,3 +159,4 @@ angular.module('ngCollection', []).
 
     return Collection;
   }]);
+})(window, window.angular);
