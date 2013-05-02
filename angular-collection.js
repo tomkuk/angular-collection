@@ -65,7 +65,7 @@ angular.module('ngCollection', []).
         for (var i = 0; i < objArr.length; i++) {
           var obj = objArr[i];
           this.add(obj, options);
-        };
+        }
 
         return this;
       },
@@ -103,8 +103,8 @@ angular.module('ngCollection', []).
 
       removeAll: function() {
         for (var i = this.array.length - 1; i >= 0; i--) {
-          this.remove(this.at(i))
-        };
+          this.remove(this.at(i));
+        }
 
         return this;
       },
@@ -151,11 +151,11 @@ angular.module('ngCollection', []).
       child._super = parent.prototype;
 
       return child;
-    }
+    };
 
     Collection.getInstance = function(options) {
       return new this(options);
-    }
+    };
 
     return Collection;
   }]);
