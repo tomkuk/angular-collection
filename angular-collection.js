@@ -1,13 +1,13 @@
 /**
  * Angular Collection - The Collection module for AngularJS
- * @version v0.2.0 - 2013-04-17
+ * @version v0.2.0 - 2013-05-02
  * @author Tomasz Kuklis
  * @license MIT License, http://www.opensource.org/licenses/MIT
  */
 'use strict';
 
 angular.module('ngCollection', []).
-  factory('$collection', ['$filter', function($filter) {
+  factory('$collection', ['$filter','$parse', function($filter,$parse) {
 
     function s4() {
       return Math.floor((1 + Math.random()) * 0x10000)
@@ -88,29 +88,32 @@ angular.module('ngCollection', []).
           throw new Error("The key must be a string!");
           return;
         }
-        //so we can find key/values below the first level
-        var struct = strKey.split('.');
+        var findFn = $parse(strKey);
         //loop over all the items in the array
         for (var i = 0; i < this.array.length; i++){
-          //get current array value
-          var obj = this.array[i];
-          //loop over each item in the structure
-          for (var k = 0; k < struct.length; k++){
-            var key = struct[k]
-            try{
-              obj = obj[key];
-            }
-            catch(e){
-              //if we throw a gasket then do nothing because "this is not the droid you are looking for"
-            }
-          }
-          //compare our final result with the value we are searching for
-          if (obj === value){
+          if (findFn(this.array[i]) === value){
             return this.array[i];
           }
         }
         //if nothing matches return void
         return void 0;
+      },
+
+      findAll: function(strKey,value){
+        var results = [];
+        if(typeof strKey !== 'string'){
+          throw new Error("The key must be a string!");
+          return;
+        }
+        var findFn = $parse(strKey);
+        //loop over all the items in the array
+        for (var i = 0; i < this.array.length; i++){
+          if (findFn(this.array[i]) === value){
+            results.push(this.array[i]);
+          }
+        }
+        //if nothing matches return void
+        return results;
       },
 
       update: function(obj) {

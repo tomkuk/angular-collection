@@ -3,7 +3,7 @@
 var expect = chai.expect;
 
 describe("collection", function() {
-  var $collection, Todos, otherTodos, a, b, c, d;
+  var $collection, Todos, otherTodos, a, b, c, d, e;
 
   beforeEach(module('ngCollection'));
   beforeEach(inject(function($injector) {
@@ -12,6 +12,7 @@ describe("collection", function() {
     b = {id: 2, label: "b"};
     c = {id: 3, label: "c"};
     d = {id: 4, label: "d",item:{id:2}};
+    e = {id: 5, label: "e",item:{id:2}};
     Todos = $collection.getInstance();
     otherTodos = $collection.getInstance();
     otherTodos.add(a);
@@ -154,6 +155,31 @@ describe("collection", function() {
       expect(todoSub)
         .to.have.property('label')
         .and.to.equal("d");
+    });
+
+    it("should throw an error if the key is not a string",function(){
+      expect(Todos.find).to.throw(/The key must be a string!/);
+    });
+
+    it("should return void 0 for no match", function () {
+      var todo = otherTodos.find('a.b.c.d',1234);
+
+      expect(todo).to.equal(void 0);
+    });
+  });
+
+  describe("#findAll", function() {
+    it("should return all records by the given string structure", function () {
+      Todos.add(a);
+      Todos.add(b);
+      Todos.add(c);
+      Todos.add(d);
+      Todos.add(e);
+
+      var todoSub = Todos.findAll('item.id',2);
+
+      expect(todoSub.length)
+        .and.to.equal(2);
     });
 
     it("should throw an error if the key is not a string",function(){
