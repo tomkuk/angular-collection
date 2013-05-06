@@ -20,31 +20,8 @@ angular.module('ngCollection', []).
         '-' +s4() + '-' + s4() + s4() + s4();
     }
 
-    function checkValue(item, expr, value, deepCompare){
-      if (value && typeof expr == 'string'){
-        var findFn = $parse(expr);
-      }
-      //if expr is a function use that to compare
-      if (angular.isFunction(expr)){
-        
-        if(expr(item)){
-          return true;
-        }
-      }
-      else{
-        //if deepCompare us true use the loosely typed comparator '=='
-        if(deepCompare){
-    
-          if (findFn(item) == value){
-            return true;
-          }
-        }
-        else{
-          if (findFn(item) === value){
-            return true;
-          }
-        }
-      }
+    function checkValue(item, compareFn){
+      return compareFn(item);
     }
 
     function Collection(options) {
@@ -112,10 +89,23 @@ angular.module('ngCollection', []).
       },
 
       find: function(expr, value, deepCompare){
-
+        var compareFn = expr;
+        if (typeof expr === 'string'){
+          var parse = $parse(expr);
+          compareFn = function(item){
+            if (deepCompare){
+              return parse(item) == value;
+            }
+            else{
+              return parse(item) === value;
+            }
+          }
+          compareFn.prototype.value = value;
+          compareFn.prototype.deepCompare = deepCompare;
+        }
         //loop over all the items in the array
         for (var i = 0; i < this.array.length; i++){
-          if(checkValue(this.array[i], expr, value, deepCompare)){
+          if(checkValue(this.array[i], compareFn)){
             return this.array[i];
           }
           
@@ -128,10 +118,24 @@ angular.module('ngCollection', []).
         
         var results = [];
         
+        var compareFn = expr;
+        if (typeof expr === 'string'){
+          var parse = $parse(expr);
+            compareFn = function(item){
+              if (deepCompare){
+                return parse(item) == value;
+              }
+              else{
+                return parse(item) === value;
+              }
+            }
+            compareFn.prototype.value = value;
+            compareFn.prototype.deepCompare = deepCompare;
+        }
         
         //loop over all the items in the array
         for (var i = 0; i < this.array.length; i++){
-          if(checkValue(this.array[i], expr, value, deepCompare)){
+          if(checkValue(this.array[i], compareFn)){
             results.push(this.array[i]);
           } 
         }
