@@ -1,9 +1,10 @@
 /**
  * Angular Collection - The Collection module for AngularJS
- * @version v0.2.0 - 2013-05-02
+ * @version v0.2.1 - 2013-05-02
  * @author Tomasz Kuklis
  * @license MIT License, http://www.opensource.org/licenses/MIT
  */
+(function(window, angular, undefined) {
 'use strict';
 
 angular.module('ngCollection', []).
@@ -64,7 +65,7 @@ angular.module('ngCollection', []).
         for (var i = 0; i < objArr.length; i++) {
           var obj = objArr[i];
           this.add(obj, options);
-        };
+        }
 
         return this;
       },
@@ -135,8 +136,8 @@ angular.module('ngCollection', []).
 
       removeAll: function() {
         for (var i = this.array.length - 1; i >= 0; i--) {
-          this.remove(this.at(i))
-        };
+          this.remove(this.at(i));
+        }
 
         return this;
       },
@@ -183,11 +184,12 @@ angular.module('ngCollection', []).
       child._super = parent.prototype;
 
       return child;
-    }
+    };
 
     Collection.getInstance = function(options) {
       return new this(options);
-    }
+    };
 
     return Collection;
   }]);
+})(window, window.angular);
