@@ -3,7 +3,7 @@
 var expect = chai.expect;
 
 describe("collection", function() {
-  var $collection, Todos, otherTodos, a, b, c, d;
+  var $collection, Todos, otherTodos, a, b, c, d, e;
 
   beforeEach(module('ngCollection'));
   beforeEach(inject(function($injector) {
@@ -11,7 +11,8 @@ describe("collection", function() {
     a = {id: 1, label: "a"};
     b = {id: 2, label: "b"};
     c = {id: 3, label: "c"};
-    d = {id: 4, label: "d"};
+    d = {id: 4, label: "d",item:{id:2}};
+    e = {id: 5, label: "e",item:{id:2}};
     Todos = $collection.getInstance();
     otherTodos = $collection.getInstance();
     otherTodos.add(a);
@@ -136,6 +137,69 @@ describe("collection", function() {
 
       expect(todo).to.equal(void 0);
     });
+  });
+
+  describe("#find", function() {
+    it("should return record by the given string structure", function () {
+      Todos.add(a);
+      Todos.add(b);
+      Todos.add(c);
+      Todos.add(d);
+
+      var todo = Todos.find('id',1);
+      var todoSub = Todos.find('item.id',2);
+
+      expect(todo)
+        .to.have.property('label')
+        .and.to.equal("a");
+      expect(todoSub)
+        .to.have.property('label')
+        .and.to.equal("d");
+    });
+
+    it("should return void 0 for no match", function () {
+      var todo = otherTodos.find('a.b.c.d',1234);
+
+      expect(todo).to.equal(void 0);
+    });
+
+    it("should use have an options third option",function(){
+
+      var todo = otherTodos.find('id','1',true);
+      var none = otherTodos.find('id','1');
+
+      expect(todo).to.have.property('label')
+        .and.to.equal('a');
+
+      expect(none).to.equal(void 0);
+    
+    });
+
+    it("should use a compare function",function(){
+      var todos = otherTodos.find(function(obj){
+        return obj.id == 1;
+      });
+
+      expect(todos).to.have.property('label')
+        .and.to.equal('a');
+
+    });
+  });
+
+  describe("#where", function() {
+    it("should return all records by the given string structure", function () {
+      Todos.add(a);
+      Todos.add(b);
+      Todos.add(c);
+      Todos.add(d);
+      Todos.add(e);
+
+      var todoSub = Todos.where('item.id',2);
+
+      expect(todoSub.length)
+        .and.to.equal(2);
+    });
+
   });
 
   describe("#update", function() {
