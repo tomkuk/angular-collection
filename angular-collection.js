@@ -20,6 +20,33 @@ angular.module('ngCollection', []).
         '-' +s4() + '-' + s4() + s4() + s4();
     }
 
+    function checkValue(item, expr, value, deepCompare){
+      if (value && typeof expr == 'string'){
+        var findFn = $parse(expr);
+      }
+      //if expr is a function use that to compare
+      if (angular.isFunction(expr)){
+        
+        if(expr(item)){
+          return true;
+        }
+      }
+      else{
+        //if deepCompare us true use the loosely typed comparator '=='
+        if(deepCompare){
+    
+          if (findFn(item) == value){
+            return true;
+          }
+        }
+        else{
+          if (findFn(item) === value){
+            return true;
+          }
+        }
+      }
+    }
+
     function Collection(options) {
       options || (options = {});
       if (options.comparator !== void 0) this.comparator = options.comparator;
@@ -84,34 +111,29 @@ angular.module('ngCollection', []).
         return this.hash[obj.id || obj[this._idAttr] || obj];
       },
 
-      find: function(strKey,value){
-        if(typeof strKey !== 'string'){
-          throw new Error("The key must be a string!");
-          return;
-        }
-        var findFn = $parse(strKey);
+      find: function(expr, value, deepCompare){
+
         //loop over all the items in the array
         for (var i = 0; i < this.array.length; i++){
-          if (findFn(this.array[i]) === value){
+          if(checkValue(this.array[i], expr, value, deepCompare)){
             return this.array[i];
           }
+          
         }
         //if nothing matches return void
         return void 0;
       },
 
-      findAll: function(strKey,value){
+      where: function(expr, value, deepCompare){
+        
         var results = [];
-        if(typeof strKey !== 'string'){
-          throw new Error("The key must be a string!");
-          return;
-        }
-        var findFn = $parse(strKey);
+        
+        
         //loop over all the items in the array
         for (var i = 0; i < this.array.length; i++){
-          if (findFn(this.array[i]) === value){
+          if(checkValue(this.array[i], expr, value, deepCompare)){
             results.push(this.array[i]);
-          }
+          } 
         }
         //if nothing matches return void
         return results;

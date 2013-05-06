@@ -157,18 +157,36 @@ describe("collection", function() {
         .and.to.equal("d");
     });
 
-    it("should throw an error if the key is not a string",function(){
-      expect(Todos.find).to.throw(/The key must be a string!/);
-    });
-
     it("should return void 0 for no match", function () {
       var todo = otherTodos.find('a.b.c.d',1234);
 
       expect(todo).to.equal(void 0);
     });
+
+    it("should use have an options third option",function(){
+
+      var todo = otherTodos.find('id','1',true);
+      var none = otherTodos.find('id','1');
+
+      expect(todo).to.have.property('label')
+        .and.to.equal('a');
+
+      expect(none).to.equal(void 0);
+    
+    });
+
+    it("should use a compare function",function(){
+      var todos = otherTodos.find(function(obj){
+        return obj.id == 1;
+      });
+
+      expect(todos).to.have.property('label')
+        .and.to.equal('a');
+
+    });
   });
 
-  describe("#findAll", function() {
+  describe("#where", function() {
     it("should return all records by the given string structure", function () {
       Todos.add(a);
       Todos.add(b);
@@ -176,21 +194,12 @@ describe("collection", function() {
       Todos.add(d);
       Todos.add(e);
 
-      var todoSub = Todos.findAll('item.id',2);
+      var todoSub = Todos.where('item.id',2);
 
       expect(todoSub.length)
         .and.to.equal(2);
     });
 
-    it("should throw an error if the key is not a string",function(){
-      expect(Todos.find).to.throw(/The key must be a string!/);
-    });
-
-    it("should return void 0 for no match", function () {
-      var todo = otherTodos.find('a.b.c.d',1234);
-
-      expect(todo).to.equal(void 0);
-    });
   });
 
   describe("#update", function() {
