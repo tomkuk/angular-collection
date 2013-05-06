@@ -14,7 +14,7 @@ angular-collection is a [bower](https://github.com/twitter/bower) [component](ht
 
 `bower install angular-collection`
 
-or if you already have a bower based project you can add angular-collection to your dependency list in `component.json`
+or if you already have a bower based project you can add angular-collection to your dependency list in `bower.json`
 
 ```js
  "dependencies": {
