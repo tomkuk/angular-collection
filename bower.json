@@ -2,7 +2,7 @@
   "author": "Tomasz Kuklis",
   "name": "angular-collection",
   "description": "Angular Collection - The Collection module for AngularJS",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "repository": {
     "type": "git",
     "url": "git://github.com/tomkuk/angular-collection.git"
