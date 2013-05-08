@@ -153,7 +153,7 @@ angular.module('ngCollection', []).
 
       remove: function(obj) {
         var index;
-        delete this.hash[obj.id];
+        delete this.hash[obj[this.idAttribute]];
         index = this.array.indexOf(obj);
         this.array.splice(index, 1);
         this.length--;
