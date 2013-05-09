@@ -1,6 +1,6 @@
 /**
  * Angular Collection - The Collection module for AngularJS
- * @version v0.3.1 - 2013-05-08
+ * @version v0.3.1 - 2013-05-09
  * @author Tomasz Kuklis
  * @license MIT License, http://www.opensource.org/licenses/MIT
  */
@@ -84,8 +84,7 @@ angular.module('ngCollection', []).
 
       get: function(obj) {
         if (obj == null) return void 0;
-        this._idAttr || (this._idAttr = this.idAttribute);
-        return this.hash[obj.id || obj[this._idAttr] || obj];
+        return this.hash[obj[this.idAttribute] || obj];
       },
 
       find: function(expr, value, deepCompare){
