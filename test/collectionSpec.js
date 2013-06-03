@@ -260,6 +260,13 @@ describe("collection", function() {
       expect(otherTodos.length).to.equal(length-1);
       expect(otherTodos.get(a)).to.be.an('undefined');
     });
+
+    it("should not remove non-contained object", function() {
+      var length = otherTodos.length;
+      otherTodos.remove(c);
+      expect(otherTodos.length).to.equal(length)
+      expect(otherTodos.get(b)).to.equal(b)
+    });
   });
 
   describe("#removeAll", function(){
