@@ -1,6 +1,6 @@
 /**
  * Angular Collection - The Collection module for AngularJS
- * @version v0.3.2 - 2013-05-09
+ * @version v0.3.2 - 2013-06-03
  * @author Tomasz Kuklis
  * @license MIT License, http://www.opensource.org/licenses/MIT
  */
@@ -152,8 +152,11 @@ angular.module('ngCollection', []).
 
       remove: function(obj) {
         var index;
+        index = this.array.indexOf(obj)
+        if (index === -1) { 
+          return this
+        }
         delete this.hash[obj[this.idAttribute]];
-        index = this.array.indexOf(obj);
         this.array.splice(index, 1);
         this.length--;
         return this;
