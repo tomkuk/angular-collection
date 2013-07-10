@@ -60,7 +60,7 @@ var app = angular.module('myApp', ['ngCollection']);
 
 ```js
 app.factory("TodoCollection", function($collection){
-	var TodoCollection = $collection();
+	var TodoCollection = $collection;
 
 	return TodoCollection;
 })
