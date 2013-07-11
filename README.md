@@ -8,7 +8,7 @@
 
 AngularCollection is a collection module for AngularJS.
 
-## Instalation
+## Installation
 
 angular-collection is a [bower](https://github.com/twitter/bower) [component](http://sindresorhus.com/bower-components/) you should be able to install it by running:
 
