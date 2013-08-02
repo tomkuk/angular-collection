@@ -65,10 +65,15 @@ angular.module('ngCollection', []).
       },
 
       addAll: function(objArr, options) {
+        options || (options = {});
+        var sort = this.comparator && options.sort !== false;
+
         for (var i = 0; i < objArr.length; i++) {
           var obj = objArr[i];
-          this.add(obj, options);
+          this.add(obj, angular.extend(options, { sort: false }));
         }
+
+        if (sort) this.sort();
 
         return this;
       },

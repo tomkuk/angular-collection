@@ -251,6 +251,13 @@ describe("collection", function() {
 
       expect(sortedTodos.last()).to.equal(c);
     });
+
+    it("should sort collection by given comparator after #addAll", function(){
+      var sortedTodos = $collection.getInstance({comparator: "label"});
+      sortedTodos.addAll([a, c, b]);
+
+      expect(sortedTodos.last()).to.equal(c);
+    });
   });
 
   describe("#remove", function(){
