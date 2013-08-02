@@ -41,10 +41,9 @@ angular.module('ngCollection', []).
 
       add: function(obj, options) {
         options || (options = {});
-        var id, sort, sortAttr, doSort, existing;
+        var id, sort, sortAttr, existing;
         sort = this.comparator && options.sort !== false;
         sortAttr = angular.isString(this.comparator) ? this.comparator : null;
-        if (sort && !doSort) doSort = true;
 
         if (!obj[this.idAttribute]) {
           obj[this.idAttribute] = guid();
@@ -60,7 +59,7 @@ angular.module('ngCollection', []).
           this.length += 1;
         }
 
-        if (doSort) this.sort();
+        if (sort) this.sort();
 
         return this;
       },
