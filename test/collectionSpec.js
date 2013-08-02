@@ -172,7 +172,7 @@ describe("collection", function() {
         .and.to.equal('a');
 
       expect(none).to.equal(void 0);
-    
+
     });
 
     it("should use a compare function",function(){
