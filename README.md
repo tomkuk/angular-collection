@@ -131,8 +131,8 @@ var todos = TodoCollection.getInstance({idAttribute: 'id', comparator: '-created
 * [@PascalPrecht](https://github.com/PascalPrecht)
 * [@warnerandy](https://github.com/warnerandy)
 * [@ajoslin](https://github.com/ajoslin)
-* [@damrbaby](https://github.com/Matthew Windwer)
-* [@failpunk](https://github.com/Justin Vencel)
+* [@damrbaby](https://github.com/damrbaby)
+* [@failpunk](https://github.com/failpunk)
 
 
 ##License:
