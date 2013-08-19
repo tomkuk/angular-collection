@@ -41,10 +41,9 @@ angular.module('ngCollection', []).
 
       add: function(obj, options) {
         options || (options = {});
-        var id, sort, sortAttr, doSort, existing;
+        var id, sort, sortAttr, existing;
         sort = this.comparator && options.sort !== false;
         sortAttr = angular.isString(this.comparator) ? this.comparator : null;
-        if (sort && !doSort) doSort = true;
 
         if (!obj[this.idAttribute]) {
           obj[this.idAttribute] = guid();
@@ -60,16 +59,21 @@ angular.module('ngCollection', []).
           this.length += 1;
         }
 
-        if (doSort) this.sort();
+        if (sort) this.sort();
 
         return this;
       },
 
       addAll: function(objArr, options) {
+        options || (options = {});
+        var sort = this.comparator && options.sort !== false;
+
         for (var i = 0; i < objArr.length; i++) {
           var obj = objArr[i];
-          this.add(obj, options);
+          this.add(obj, angular.extend(options, { sort: false }));
         }
+
+        if (sort) this.sort();
 
         return this;
       },
@@ -107,16 +111,16 @@ angular.module('ngCollection', []).
           if(checkValue(this.array[i], compareFn)){
             return this.array[i];
           }
-          
+
         }
         //if nothing matches return void
         return void 0;
       },
 
       where: function(expr, value, deepCompare){
-        
+
         var results = [];
-        
+
         var compareFn = expr;
         if (typeof expr === 'string'){
           var parse = $parse(expr);
@@ -131,12 +135,12 @@ angular.module('ngCollection', []).
             compareFn.prototype.value = value;
             compareFn.prototype.deepCompare = deepCompare;
         }
-        
+
         //loop over all the items in the array
         for (var i = 0; i < this.array.length; i++){
           if(checkValue(this.array[i], compareFn)){
             results.push(this.array[i]);
-          } 
+          }
         }
         //if nothing matches return void
         return results;
@@ -153,7 +157,7 @@ angular.module('ngCollection', []).
       remove: function(obj) {
         var index;
         index = this.array.indexOf(obj)
-        if (index === -1) { 
+        if (index === -1) {
           return this
         }
         delete this.hash[obj[this.idAttribute]];
