@@ -172,7 +172,7 @@ describe("collection", function() {
         .and.to.equal('a');
 
       expect(none).to.equal(void 0);
-    
+
     });
 
     it("should use a compare function",function(){
@@ -248,6 +248,13 @@ describe("collection", function() {
       sortedTodos.add(a);
       sortedTodos.add(c);
       sortedTodos.add(b);
+
+      expect(sortedTodos.last()).to.equal(c);
+    });
+
+    it("should sort collection by given comparator after #addAll", function(){
+      var sortedTodos = $collection.getInstance({comparator: "label"});
+      sortedTodos.addAll([a, c, b]);
 
       expect(sortedTodos.last()).to.equal(c);
     });
