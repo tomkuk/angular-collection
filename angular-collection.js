@@ -41,9 +41,8 @@ angular.module('ngCollection', []).
 
       add: function(obj, options) {
         options || (options = {});
-        var id, sort, sortAttr, existing;
+        var id, sort, existing;
         sort = this.comparator && options.sort !== false;
-        sortAttr = angular.isString(this.comparator) ? this.comparator : null;
 
         if (!obj[this.idAttribute]) {
           obj[this.idAttribute] = guid();
@@ -79,7 +78,7 @@ angular.module('ngCollection', []).
       },
 
       sort: function() {
-        if (angular.isString(this.comparator)) {
+        if (this.comparator) {
           this.array = $filter('orderBy')(this.array, this.comparator);
         }
 
