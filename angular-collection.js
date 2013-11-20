@@ -42,7 +42,7 @@ angular.module('ngCollection', []).
       add: function(obj, options) {
         options || (options = {});
         var id, sort, existing;
-        sort = this.comparator && options.sort !== false;
+        sort = options.sort !== false;
 
         if (!obj[this.idAttribute]) {
           obj[this.idAttribute] = guid();
@@ -65,7 +65,7 @@ angular.module('ngCollection', []).
 
       addAll: function(objArr, options) {
         options || (options = {});
-        var sort = this.comparator && options.sort !== false;
+        var sort = options.sort !== false;
 
         for (var i = 0; i < objArr.length; i++) {
           var obj = objArr[i];
