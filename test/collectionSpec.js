@@ -68,6 +68,28 @@ describe("collection", function() {
         .to.have.property('label')
         .and.to.equal("aa");
     });
+
+    it("should add record at specified index", function () {
+      Todos.add(a);
+      Todos.add(b);
+      Todos.add(c, {index: 0});
+
+      expect(Todos.length).to.equal(3);
+      expect(Todos.array[0])
+        .to.equal(c)
+        .to.have.property('label')
+        .and.to.equal("c");
+      expect(Todos.hash[3]).to.equal(c);
+
+      Todos.add(d, {index: 1});
+
+      expect(Todos.length).to.equal(4);
+      expect(Todos.array[1])
+        .to.equal(d)
+        .to.have.property('label')
+        .and.to.equal("d");
+      expect(Todos.hash[4]).to.equal(d);
+    });
   });
 
   describe("#addAll", function(){
