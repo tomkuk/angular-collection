@@ -41,7 +41,11 @@ angular.module('ngCollection', []).
 
       add: function(obj, options) {
         options || (options = {});
-        var id, sort, sortAttr, existing;
+        var id, index, sort, sortAttr, existing;
+        if (options.index !== void 0)
+          index = options.index;
+        else
+          index = this.array.length;
         sort = this.comparator && options.sort !== false;
         sortAttr = angular.isString(this.comparator) ? this.comparator : null;
 
@@ -55,7 +59,7 @@ angular.module('ngCollection', []).
           id = obj[this.idAttribute];
 
           this.hash[id] = obj;
-          this.array.push(obj);
+          this.array.splice(index, 0, obj);
           this.length += 1;
         }
 
