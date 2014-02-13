@@ -5,7 +5,7 @@
   },
   "name": "angular-collection",
   "description": "Angular Collection - The Collection module for AngularJS",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "license": "MIT",
   "repository": {
     "type": "git",
