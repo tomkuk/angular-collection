@@ -79,6 +79,7 @@ var todos = TodoCollection.getInstance();
 ```js
 todos.add({ title: "todo1" });
 todos.add({ title: "todo2" });
+todos.add({ title: "todo0" }, {index: 0});
 ```
 
 ###Get a single record

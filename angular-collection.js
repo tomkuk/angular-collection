@@ -41,8 +41,14 @@ angular.module('ngCollection', []).
 
       add: function(obj, options) {
         options || (options = {});
-        var id, sort, existing;
+        var id, sort, existing, index;
         sort = options.sort !== false;
+
+        if (options.index !== void 0) {
+          index = options.index;
+        } else {
+          index = this.array.length;
+        }
 
         if (!obj[this.idAttribute]) {
           obj[this.idAttribute] = guid();
@@ -54,7 +60,7 @@ angular.module('ngCollection', []).
           id = obj[this.idAttribute];
 
           this.hash[id] = obj;
-          this.array.push(obj);
+          this.array.splice(index, 0, obj);
           this.length += 1;
         }
 
