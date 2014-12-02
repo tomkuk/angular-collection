@@ -83,9 +83,11 @@ angular.module('ngCollection', []).
         return this;
       },
 
-      sort: function() {
-        if (this.comparator) {
-          this.array = $filter('orderBy')(this.array, this.comparator);
+      sort: function(comparator) {
+        var comparator = comparator || this.comparator;
+
+        if (comparator) {
+          this.array = $filter('orderBy')(this.array, comparator);
         }
 
         return this;
