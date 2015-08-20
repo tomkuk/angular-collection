@@ -1,5 +1,3 @@
-var testacular = require('testacular');
-
 /*global module:false*/
 module.exports = function (grunt) {
 
