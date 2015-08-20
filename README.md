@@ -1,6 +1,9 @@
 ## AngularCollection
 
-[![Build Status](https://travis-ci.org/tomkuk/angular-collection.png?branch=master)](https://travis-ci.org/tomkuk/angular-collection)
+[![npm version](https://img.shields.io/npm/v/angular-collection.svg?style=flat-square)](https://www.npmjs.com/package/angular-collection) [![npm downloads](https://img.shields.io/npm/dm/angular-collection.svg?style=flat-square)](https://www.npmjs.com/package/angular-collection)
+
+[![Build Status](https://travis-ci.org/tomkuk/angular-collection.png?branch=master)](https://travis-ci.org/tomkuk/angular-collection) [![Code Climate](https://img.shields.io/codeclimate/github/tomkuk/angular-collection.svg?style=flat-square)](https://codeclimate.com/github/tomkuk/angular-collection) [![Dependency Status](https://img.shields.io/david/tomkuk/angular-collection.svg?style=flat-square)](https://david-dm.org/tomkuk/angular-collection) [![devDependency Status](https://img.shields.io/david/dev/tomkuk/angular-collection.svg?style=flat-square)](https://david-dm.org/tomkuk/angular-collection#info=devDependencies)
+
 
 ![angular-collection.js](http://i46.tinypic.com/726m80.jpg)
 
