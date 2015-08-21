@@ -1,6 +1,6 @@
 /**
  * Angular Collection - The Collection module for AngularJS
- * @version v0.5.1 - 2014-12-03
+ * @version v0.5.2 - 2015-08-21
  * @author Tomasz Kuklis
  * @license MIT License, http://www.opensource.org/licenses/MIT
  */
