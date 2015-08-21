@@ -1,8 +1,15 @@
 ## AngularCollection
 
-[![npm version](https://img.shields.io/npm/v/angular-collection.svg?style=flat-square)](https://www.npmjs.com/package/angular-collection) [![Bower version](https://badge.fury.io/bo/angular-collection.svg)](http://badge.fury.io/bo/angular-collection) [![npm downloads](https://img.shields.io/npm/dm/angular-collection.svg?style=flat-square)](https://www.npmjs.com/package/angular-collection)
+[![npm version](https://img.shields.io/npm/v/angular-collection.svg?style=flat-square)](https://www.npmjs.com/package/angular-collection)
+[![Bower version](https://badge.fury.io/bo/angular-collection.svg)](http://badge.fury.io/bo/angular-collection)
+[![npm downloads](https://img.shields.io/npm/dm/angular-collection.svg?style=flat-square)](https://www.npmjs.com/package/angular-collection)
+[![License](https://img.shields.io/github/license/blackxored/whos_dated_who.svg)](http://www.opensource.org/licenses/MIT)
 
-[![Build Status](https://travis-ci.org/tomkuk/angular-collection.png?branch=master)](https://travis-ci.org/tomkuk/angular-collection) [![Code Climate](https://img.shields.io/codeclimate/github/tomkuk/angular-collection.svg?style=flat-square)](https://codeclimate.com/github/tomkuk/angular-collection) [![Test Coverage](https://codeclimate.com/github/tomkuk/angular-collection/badges/coverage.svg)](https://codeclimate.com/github/tomkuk/angular-collection/coverage) [![Dependency Status](https://img.shields.io/david/tomkuk/angular-collection.svg?style=flat-square)](https://david-dm.org/tomkuk/angular-collection) [![devDependency Status](https://img.shields.io/david/dev/tomkuk/angular-collection.svg?style=flat-square)](https://david-dm.org/tomkuk/angular-collection#info=devDependencies)
+[![Build Status](https://travis-ci.org/tomkuk/angular-collection.png?branch=master)](https://travis-ci.org/tomkuk/angular-collection)
+[![Code Climate](https://img.shields.io/codeclimate/github/tomkuk/angular-collection.svg?style=flat-square)](https://codeclimate.com/github/tomkuk/angular-collection)
+[![Test Coverage](https://codeclimate.com/github/tomkuk/angular-collection/badges/coverage.svg)](https://codeclimate.com/github/tomkuk/angular-collection/coverage)
+[![Dependency Status](https://img.shields.io/david/tomkuk/angular-collection.svg?style=flat-square)](https://david-dm.org/tomkuk/angular-collection)
+[![devDependency Status](https://img.shields.io/david/dev/tomkuk/angular-collection.svg?style=flat-square)](https://david-dm.org/tomkuk/angular-collection#info=devDependencies)
 
 
 ![angular-collection.js](http://i46.tinypic.com/726m80.jpg)
