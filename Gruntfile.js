@@ -55,7 +55,7 @@ module.exports = function (grunt) {
 
     karma: {
       options: {
-        configFile: 'test/test-config.js',
+        configFile: 'karma.conf.js',
         runnerPort: 9999,
         browsers: ['Chrome', 'Firefox']
       },
