@@ -35,22 +35,8 @@ module.exports = function (grunt) {
       }
     },
 
-    jshint: {
-      options: {
-        eqeqeq: true,
-        eqnull: true,
-        expr: true,
-        globals: {
-          angular: true,
-          chai: true,
-          it: true,
-          describe: true,
-          module: true,
-          inject: true,
-          beforeEach: true
-        }
-      },
-      all: ['Gruntfile.js', 'angular-collection.js', 'test/*.js']
+    eslint: {
+      target: ['angular-collection.js']
     },
 
     karma: {
@@ -76,9 +62,10 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('default', 'karma:ci');
-  grunt.registerTask('build', ['concat', 'uglify']);
+  grunt.registerTask('lint', ['eslint']);
+  grunt.registerTask('build', ['lint','concat', 'uglify']);
 
-  grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-eslint');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
