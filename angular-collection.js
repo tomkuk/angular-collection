@@ -106,9 +106,8 @@
             var parse = $parse(expr)
             compareFn = function (item) {
               if (deepCompare) {
-                return parse(item) === value
-              }
-              else {
+                return parse(item) == value // eslint-disable-line eqeqeq
+              } else {
                 return parse(item) === value
               }
             }
@@ -136,8 +135,7 @@
             compareFn = function (item) {
               if (deepCompare) {
                 return parse(item) === value
-              }
-              else {
+              } else {
                 return parse(item) === value
               }
             }
