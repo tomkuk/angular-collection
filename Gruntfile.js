@@ -36,7 +36,7 @@ module.exports = function (grunt) {
     },
 
     eslint: {
-      target: ['angular-collection.js']
+      target: ['Gruntfile.js', 'angular-collection.js', 'test/*.js']
     },
 
     karma: {
@@ -59,16 +59,16 @@ module.exports = function (grunt) {
         dest: 'CHANGELOG.md'
       }
     }
-  });
+  })
 
-  grunt.registerTask('default', 'karma:ci');
-  grunt.registerTask('lint', ['eslint']);
-  grunt.registerTask('build', ['lint','concat', 'uglify']);
+  grunt.registerTask('default', 'karma:ci')
+  grunt.registerTask('lint', ['eslint'])
+  grunt.registerTask('build', ['lint', 'concat', 'uglify'])
 
-  grunt.loadNpmTasks('grunt-eslint');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-karma');
-  grunt.loadNpmTasks('grunt-conventional-changelog');
-};
+  grunt.loadNpmTasks('grunt-eslint')
+  grunt.loadNpmTasks('grunt-contrib-watch')
+  grunt.loadNpmTasks('grunt-contrib-concat')
+  grunt.loadNpmTasks('grunt-contrib-uglify')
+  grunt.loadNpmTasks('grunt-karma')
+  grunt.loadNpmTasks('grunt-conventional-changelog')
+}
