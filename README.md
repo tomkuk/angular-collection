@@ -1,5 +1,6 @@
 ## AngularCollection
 
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/tomkuk/angular-collection)
 [![npm version](https://img.shields.io/npm/v/angular-collection.svg?style=flat-square)](https://www.npmjs.com/package/angular-collection)
 [![Bower version](https://badge.fury.io/bo/angular-collection.svg)](http://badge.fury.io/bo/angular-collection)
 [![npm downloads](https://img.shields.io/npm/dm/angular-collection.svg?style=flat-square)](https://www.npmjs.com/package/angular-collection)
