@@ -59,15 +59,15 @@ or if you already have a bower based project you can add angular-collection to y
 
 + all()
 
-##Usage
+## Usage
 
-####Specify dependencies
+#### Specify dependencies
 
 ```js
 var app = angular.module('myApp', ['ngCollection']);
 ```
 
-####Define new factory
+#### Define new factory
 
 ```js
 app.factory("TodoCollection", function($collection){
@@ -77,13 +77,13 @@ app.factory("TodoCollection", function($collection){
 })
 ```
 
-####Get collection instance
+#### Get collection instance
 
 ```js
 var todos = TodoCollection.getInstance();
 ```
 
-####Add new records
+#### Add new records
 
 `_id` property will be generated and attached to each new record.
 
@@ -93,7 +93,7 @@ todos.add({ title: "todo2" });
 todos.add({ title: "todo0" }, {index: 0});
 ```
 
-###Get a single record
+### Get a single record
 
 Get a record from the collection, specified by an id or by passing in a record.
 
@@ -101,7 +101,7 @@ Get a record from the collection, specified by an id or by passing in a record.
 	var todo = todos.get(10);
 ```
 
-####Update a single record
+#### Update a single record
 
 If a record is already in the collection, its attributes will be merged.
 
@@ -109,19 +109,19 @@ If a record is already in the collection, its attributes will be merged.
 	todos.update({ id: 1, title: 'todos3' });
 ```
 
-####Remove a record from the collection
+#### Remove a record from the collection
 
 ```js
 	todos.remove({ id: 1, title: 'todos3' });
 ```
 
-####Get a single record, spcified by index
+#### Get a single record, spcified by index
 
 ```js
 	todos.at(1);
 ```
 
-####Sort records as they are added to collection
+#### Sort records as they are added to collection
 
 Sort the collection by title descending each time you call add()
 
@@ -131,7 +131,7 @@ Sort the collection by title descending each time you call add()
 	todos.add({ title: "todo2" });		// performs sort
 ```
 
-####Sort records on demand
+#### Sort records on demand
 
 Sorts the collection by title descending but only when sort() is called
 
@@ -155,7 +155,7 @@ Currently the only options available are `idAttribute` and `comparator`.
 var todos = TodoCollection.getInstance({idAttribute: 'id', comparator: '-created_at'});
 ```
 
-##Contributors:
+## Contributors:
 
 * [@tomkuk](http://github.com/tomkuk)
 * [@mkuklis](http://github.com/mkuklis)
@@ -168,7 +168,7 @@ var todos = TodoCollection.getInstance({idAttribute: 'id', comparator: '-created
 * [@failpunk](https://github.com/failpunk)
 
 
-##License:
+## License:
 <pre>
 The MIT License
 </pre>
