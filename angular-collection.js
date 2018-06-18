@@ -9,7 +9,6 @@
 
   angular.module('ngCollection', [])
     .factory('$collection', ['$filter', '$parse', function ($filter, $parse) {
-
       function s4 () {
         return Math.floor((1 + Math.random()) * 0x10000)
           .toString(16).substring(1)
@@ -119,14 +118,12 @@
             if (checkValue(this.array[i], compareFn)) {
               return this.array[i]
             }
-
           }
           // if nothing matches return void
           return void 0
         },
 
         where: function (expr, value, deepCompare) {
-
           var results = []
 
           var compareFn = expr

@@ -187,7 +187,6 @@ describe('collection', function () {
     })
 
     it('should use have an options third option', function () {
-
       var todo = otherTodos.find('id', '1', true)
       var none = otherTodos.find('id', '1')
 
@@ -195,7 +194,6 @@ describe('collection', function () {
         .and.to.equal('a')
 
       expect(none).to.equal(void 0)
-
     })
 
     it('should use a compare function', function () {
@@ -205,7 +203,6 @@ describe('collection', function () {
 
       expect(todos).to.have.property('label')
         .and.to.equal('a')
-
     })
   })
 
@@ -222,7 +219,6 @@ describe('collection', function () {
       expect(todoSub.length)
         .and.to.equal(2)
     })
-
   })
 
   describe('#update', function () {
