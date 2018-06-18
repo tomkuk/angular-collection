@@ -32,7 +32,9 @@
     "karma-chrome-launcher": "^0.2.0",
     "karma-coverage": "^0.5.0",
     "karma-mocha": "^0.2.0",
-    "karma-phantomjs-launcher": "^0.2.1"
+    "karma-phantomjs-launcher": "^0.2.3",
+    "mocha": "^5.2.0",
+    "phantomjs": "^2.1.7"
   },
   "scripts": {
     "test": "./node_modules/karma/bin/karma start --single-run --browsers=PhantomJS ./karma.conf.js"
