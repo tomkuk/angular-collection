@@ -22,12 +22,12 @@ describe('collection', function () {
 
   it('should build collection', function () {
     expect(Todos).to.be.a('object')
-    expect(Todos.array).to.be
+    expect(Todos.array).to.be // eslint-disable-line no-unused-expressions
     expect(Todos.array).to.be.a('array')
-    expect(Todos.array).to.be.empty
-    expect(Todos.hash).to.be
+    expect(Todos.array).to.be.empty // eslint-disable-line no-unused-expressions
+    expect(Todos.hash).to.be // eslint-disable-line no-unused-expressions
     expect(Todos.hash).to.be.a('object')
-    expect(Todos.array).to.be.empty
+    expect(Todos.array).to.be.empty // eslint-disable-line no-unused-expressions
   })
 
   describe('#add', function () {

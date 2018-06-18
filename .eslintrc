@@ -1,6 +1,6 @@
 {
-    "extends": "standard",
-    "env": {
-        "browser": true
-    }
+  "extends": "standard",
+  "env": {
+    "browser": true
+  }
 }
